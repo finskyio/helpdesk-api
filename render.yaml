@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: helpdesk-api-prod
+    env: node
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: WEB_ORIGINS
+        value: https://helpdesk-web-five.vercel.app,https://helpdesk-web-git-dev-finsky.vercel.app
+      - key: DATABASE_URL
+        sync: false
