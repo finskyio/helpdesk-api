@@ -11,7 +11,7 @@
     "format:check": "prettier --check .",
     "prepare": "husky",
     "prisma:generate": "prisma generate",
-    "postinstall": "node -e \"if(process.env.DATABASE_URL){process.exit(require('child_process').spawnSync('npx',['prisma','generate'],{stdio:'inherit'}).status||0)}\"",
+    "postinstall": "prisma generate",
     "seed": "node prisma/seed.js"
   },
   "lint-staged": {
@@ -32,7 +32,8 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.19.0",
-    "zod": "^4.3.6"
+    "zod": "^4.3.6",
+    "prisma": "^7.4.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.2",
@@ -43,7 +44,6 @@
     "globals": "^17.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.1",
-    "prettier": "^3.8.1",
-    "prisma": "^7.4.2"
+    "prettier": "^3.8.1"
   }
 }
